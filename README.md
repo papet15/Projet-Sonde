@@ -15,6 +15,7 @@ Idéalement, sonde@mo pourra aussi s’intégrer dans des environnements existan
 type IFTTT et proposer une API.
 
 2. Exigences
+
 ○ Sonde de pression et température
 Les informations de température et pression sont acquises par un capteur
 i2c BMP180 ou BME280.
