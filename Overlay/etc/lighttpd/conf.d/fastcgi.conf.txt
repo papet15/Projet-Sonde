@@ -1,0 +1,4 @@
+fastcgi.server = ( .php = ((
+	bin-path = usrbinphp-cgi,
+	socket = vartmpphp.socket
+)))
