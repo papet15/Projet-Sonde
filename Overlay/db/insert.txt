@@ -1,0 +1,1 @@
+sqlite3 /data/data.db "INSERT INTO data_captor (pression, temperature, date) VALUES( $(cat /sys/bus/iio/devices/iio:device0/in_pressure_input), $(cat /sys/bus/iio/devices/iio:device0/in_temp_input)/1000, '$(date "+%Y-%m-%d %H:%M:%S")' )"

@@ -1,0 +1,1 @@
+sqlite3 /data/data.db "select * from data_captor"

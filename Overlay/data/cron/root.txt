@@ -1,0 +1,3 @@
+*/2 * * * * /bin/date >> /tmp/date.log
+*/2 * * * * /db/insert
+0 * * * * /usr/bin/ntpdate pool.ntp.org >>/tmp/ntpdate.log 2>&1

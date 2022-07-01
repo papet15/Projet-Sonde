@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# Start ntpdate (pour mettre la date a jour en UTC)
+#
+
+
+case "$1" in
+  start)
+        printf "Starting ntpdate: "
+        /usr/bin/ntpdate pool.ntp.org
+        [ $? = 0 ] && echo "OK" || echo "FAIL"
+        ;;
+  stop)
+        printf "Stopping ntpd: "
+
+
+        [ $? = 0 ] && echo "OK" || echo "FAIL"
+        ;;
+  *)
+        echo "Usage: $0 {start|stop}"
+        exit 1
+esac
+
+exit $?
