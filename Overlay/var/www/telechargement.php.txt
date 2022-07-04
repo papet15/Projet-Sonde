@@ -1,0 +1,14 @@
+<?php
+exec('sqlite3 -header -csv /data/data.db "select * from data_captor;" > /tmp/data.csv');
+
+$filename = '/tmp/data.csv';
+
+header("Pragma: no-cache");
+header("Expires: 0");
+
+header("Content-type: text/csv");
+header("Content-Disposition: attachment; filename=ToutesDonnees.csv");
+
+header('Content-Length: ' . filesize($filename));
+readfile($filename);
+?>

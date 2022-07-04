@@ -1,1 +1,51 @@
-<?php phpinfo(); ?>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="telechargement.php">Telechargement csv</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Filtre
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="jour.php">Jour</a></li>
+              <li><a class="dropdown-item" href="semaine.php">Semaine</a></li>
+              <li><a class="dropdown-item" href="mois.php">Mois</a></li>
+              <li><a class="dropdown-item" href="annee.php">Année</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<div class="center">
+<div style=" font-size: 15px; font-style: bold;color: #222;"> <?php echo date('Y-m-d - H:i');?> </div>
+<h3>Temperature
+  <p style="padding:0 0 0 15px; font-size: 17px; font-weight: lighter; font-style: italic;color: #222;">
+    Actuelle : <?php echo $db->querySingle('select temperature from data_captor where date=(select max(date) from data_captor);'); ?> °C / Min : <?php echo $db->querySingle('select min(temperature) from data_captor'); ?> °C / Max : <?php echo $db->querySingle('select max(temperature) from data_captor'); ?> °C
+    </p>
+      <h3>Pression
+    <p style="padding:0 0 0 15px; font-size: 17px; font-weight: lighter; font-style: italic;color: #222;">
+    Actuelle : <?php echo $db->querySingle('select pression from data_captor where date=(select max(date) from data_captor);'); ?> KPa / Min : <?php echo $db->querySingle('select min(pression) from data_captor'); ?> KPa / Max : <?php echo $db->querySingle('select max(pression) from data_captor');?>  KPa
+    </p>
+<h1>Projet Sonde@mo</h1>
+  <h3>Presentation</h3>
+  <p>Le principe du projet est de fabriquer une sonde WiFi de température et pression type <a href="https://www.netatmo.com/fr-fr/weather/weatherstation" style="color: #555;">Netatmo</a> qui puisse s'intégrer dans un environnement domestique.</p>
+  <p>Elle pourra donner les informations météo en direct via une API web mais également un historique de mesures sur les jours, semaines, mois et années précédentes.</p>
+  <p>Robuste, sonde@mo résiste aux contraintes d’un appareil grand public (CE) notamment les coupures de courant et arrêts brutaux</p>
+  <p>Idéalement, sonde@mo pourra aussi s’intégrer dans des environnements existants type IFTTT et proposer une API.</p>
+  <p><a href="https://github.com/papet15/Projet-Sonde" style="color: #555;">Github</a></p>
+</div>
+  </body>
+</html>
